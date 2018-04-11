@@ -23,6 +23,8 @@ int orientation = 0;
 
 float accelX, accelY, accelZ;
 
+PImage plane;
+
 void setup () 
 {
   size(640, 360, P3D); 
@@ -32,6 +34,7 @@ void setup ()
   // Defer callback until new line
   fd.bufferUntil('\n');
   rover = loadShape("tinker.obj");
+  plane = loadImage("plane.png");
 }
 
 void draw () 
@@ -39,9 +42,18 @@ void draw ()
   background(0.5);
   arc(100, 100, 100, 100, 0, radians(pitch+90));
   displayRover();
+  displayPlane();
   //drawCube();
   printData();
   delay(50);
+}
+
+void displayPlane() {
+  pushMatrix();
+  translate(400, 400);
+  rotate(radians(roll));
+  image(plane, 0, 0);
+  popMatrix();
 }
 
 void printData() {
