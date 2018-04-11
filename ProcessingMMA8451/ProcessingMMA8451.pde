@@ -50,7 +50,7 @@ void draw ()
 
 void displayPlane() {
   pushMatrix();
-  translate(400, 400);
+  translate(100, 100);
   rotate(radians(roll));
   image(plane, 0, 0);
   popMatrix();
@@ -76,10 +76,9 @@ void displayRover() {
   
   translate(width/2, height/2);
   scale(6);
-  rotateX(radians(90));
+  rotateX(radians(roll+90));
   rotateY(radians(pitch));
-  rotateZ(radians(180));
-  shape(rover, 0, 0);
+  shape(rover, 20, 0);
   popMatrix();
 }
 
